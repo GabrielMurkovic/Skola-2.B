@@ -27,3 +27,10 @@ int main() {
 		cout << "NE PROLAZI";
 	}
 }
+// Ulaz: 80 90 30
+// Očekivani izlaz : NE PROLAZI
+// Što ovim testom provjeravam : Provjeravam da natjecatelj ne prolazi ako iz jednog zadatka ima manje od 40 bodova, iako ima dovoljno ukupnih bodova
+
+// Ulaz: 50 60 70
+// Očekivani izlaz : NE PROLAZI
+// Što ovim testom provjeravam : Provjeravam da natjecatelj ne prolazi ako iz svih zadataka ima dovoljno bodova, ali nema dovoljno ukupnih bodova
