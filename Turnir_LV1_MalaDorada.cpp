@@ -1,7 +1,3 @@
-// Naziv Funckije:Prolazi
-// Ulazni parametri: broj bodova u 1., 2. i 3. zadatku
-// Povratna vrijednost: true ili false
-// Što radi main(), a što funkcija?  Main učitava bodove i ispisuje dali prolazi ili ne,a funkcija provjerava zadoljava li natjecatelj sve uvjete
 
 #include <iostream>
 using namespace std;
@@ -30,3 +26,4 @@ int main() {
 		cout << "NE PROLAZI";
 	}
 }
+//Promjenio sam 1 mjesto u provjeravanju uvjeta ako je zbroj bodova veci od 200
