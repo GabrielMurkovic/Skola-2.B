@@ -1,0 +1,20 @@
+PRIPREMA:
+1.
+Ulaz predstavlja parametre koje funkcija koristi
+Izlaz predstavlja ono što funkcija vraća 
+
+2.Definicija funkcije je kada odredimo što funkcija radi, koje parametre prima i koji tip podatka vraća
+Poziv funkcije je kada tu funkciju pozovemo da se izvrši i ona vrati rezultat
+
+3.
+int veci(int a,int b){
+
+if(a>b) return << a;
+else    return << b;
+
+}
+cout << veci(1,3) << endl;
+
+
+
+
