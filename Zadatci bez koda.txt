@@ -1,0 +1,211 @@
+LV9 – Analizator rezultata natjecanja
+A1. Potpisi funkcija
+Funkcija 1: prvaPozicijaMaksimuma
+
+Prima vektor cijelih brojeva const vector<int>& v, a vraća prvu poziciju najvećeg rezultata. Ako se najveći rezultat ponavlja, zadržava prvu poziciju.
+
+Funkcija 2: brojProlaznih
+
+Prima vektor cijelih brojeva const vector<int>& v i prag int p, a vraća broj rezultata koji su veći ili jednaki pragu.
+
+Zašto usporedba > i >= ne moraju dati istu poziciju?
+
+Operator > mijenja poziciju samo kada pronađe strogo veći rezultat pa zadržava prvu pojavu maksimuma. Operator >= mijenja poziciju i kada pronađe jednak rezultat pa bi zadržao posljednju pojavu maksimuma.
+
+B1. Vlastiti test 4 – ponovljeni maksimum
+Ulaz:
+
+
+text
+5 60
+80 90 70 90 50
+Očekivani izlaz:
+
+
+text
+NAJBOLJI 90
+POZICIJA 2
+PROLAZ 3
+B2. Vlastiti test 5 – nitko ne prolazi
+Ulaz:
+
+
+text
+4 100
+10 20 30 40
+Očekivani izlaz:
+
+
+text
+NAJBOLJI 40
+POZICIJA 4
+PROLAZ 0
+C1. Dodatni zadatak – broj natjecatelja s najboljim rezultatom
+Ako više natjecatelja ima najbolji rezultat, potrebno je izbrojiti sve takve natjecatelje.
+
+Koristimo varijablu brojNajboljih. Kada pronađemo novi maksimum, postavljamo broj najboljih na 1 jer je pronađen novi najbolji rezultat. Kada pronađemo rezultat jednak maksimumu, povećavamo broj najboljih za 1.
+
+D1. Samoprocjena LV9
+Danas sam najviše napredovao/la u:
+
+Razumijevanju funkcija, korištenju vektora kao argumenta funkcije i povezivanju funkcija u glavnom programu.
+
+Jedna pogreška koju ću ubuduće provjeravati prije predaje:
+
+Provjeravat ću koristim li operator > umjesto >= pri traženju prve pozicije maksimuma.
+
+Pitanje za LV10: Može li se funkcija koja broji rezultate napisati rekurzivno?
+
+Da. Funkcija se može napisati rekurzivno tako da provjerava jedan po jedan element vektora. Potreban je bazni slučaj koji zaustavlja rekurziju kada dođemo do kraja vektora. Svakim pozivom indeks se povećava za 1.
+
+LV10 – Iterativni i rekurzivni pristup
+A1. Broj elemenata koji zadovoljavaju prag
+Za vektor {42, 58, 35} i prag p = 50:
+
+Koliko elemenata zadovoljava uvjet?
+
+1 element.
+
+Što vraća rekurzivni poziv kada je indeks jednak veličini vektora?
+
+Vraća 0 jer više nema elemenata za obradu. To je bazni slučaj rekurzije.
+
+Koji se argument mijenja pri svakom sljedećem pozivu?
+
+Indeks i povećava se za 1.
+
+B1. Testiranje – test 1
+Ulaz:
+
+
+text
+7 50
+42 58 58 35 61 47 61
+Očekivani broj: 4
+
+Iterativni rezultat: 4
+
+Rekurzivni rezultat: 4
+
+B2. Testiranje – test 2
+Ulaz:
+
+
+text
+4 70
+70 70 70 70
+Očekivani broj: 4
+
+Iterativni rezultat: 4
+
+Rekurzivni rezultat: 4
+
+B3. Testiranje – test 3
+Ulaz:
+
+
+text
+5 80
+10 20 30 40 50
+Očekivani broj: 0
+
+Iterativni rezultat: 0
+
+Rekurzivni rezultat: 0
+
+B4. Testiranje – test 4
+Ulaz:
+
+
+text
+1 40
+40
+Očekivani broj: 1
+
+Iterativni rezultat: 1
+
+Rekurzivni rezultat: 1
+
+B5. Testiranje – test 5
+Ulaz:
+
+
+text
+1 40
+39
+Očekivani broj: 0
+
+Iterativni rezultat: 0
+
+Rekurzivni rezultat: 0
+
+B6. Testiranje – test 6, vlastiti test
+Ulaz:
+
+
+text
+6 50
+50 20 80 49 100 10
+Očekivani broj: 3
+
+Iterativni rezultat: 3
+
+Rekurzivni rezultat: 3
+
+C1. Usporedba iterativnog i rekurzivnog rješenja
+Koliko se elemenata obrađuje?
+
+Iterativno: n elemenata.
+
+Rekurzivno: n elemenata.
+
+Vremenska složenost O(…)?
+
+Iterativno: O(n).
+
+Rekurzivno: O(n).
+
+Dodatna memorija O(…)?
+
+Iterativno: O(1).
+
+Rekurzivno: O(n).
+
+Što se događa s vrlo velikim n?
+
+Iterativno rješenje može obraditi veliki broj elemenata bez stvaranja velikog broja poziva funkcije. Rekurzivno rješenje može potrošiti previše memorije stoga poziva i uzrokovati prekid programa.
+
+C2. Zaključak – koji postupak izabrati za n = 1000?
+Za n = 1000 izabrao bih iterativni postupak jer je jednostavniji i koristi manje dodatne memorije. Oba postupka imaju vremensku složenost O(n), što znači da svaki element obrađuju jednom. Rekurzivni postupak koristi dodatnu memoriju za spremanje poziva funkcije. Kada je n vrlo velik, rekurzija može uzrokovati prekoračenje stoga poziva. Zato je iterativno rješenje pouzdanije za velike ulaze.
+
+D1. Natjecateljski problem – n = 1 000 000
+Za n = 1 000 000 koristio bih iterativni postupak s petljom for. Svaki element obrađuje se samo jednom, a vremenska složenost je O(n). Dodatna memorija algoritma je O(1). Duboka rekurzija može uzrokovati prekoračenje stoga poziva jer svaki poziv funkcije zauzima dodatnu memoriju. Zato je iterativno rješenje bolji izbor za jako velike ulaze.
+
+D2. Dodatni zadatak – određivanje svih rezultata u jednom prolasku
+Da, maksimum, prva pozicija maksimuma, broj najboljih rezultata i broj prolaznih rezultata mogu se odrediti u jednom prolasku kroz vektor.
+
+Koristimo četiri varijable:
+
+maksimum – najveći rezultat.
+
+pozicija – prva pozicija najvećeg rezultata.
+
+brojNajboljih – broj natjecatelja s najboljim rezultatom.
+
+brojProlaznih – broj natjecatelja koji zadovoljavaju prag.
+
+Kada pronađemo novi maksimum, ažuriramo maksimum i poziciju te postavljamo broj najboljih na 1. Kada pronađemo rezultat jednak maksimumu, povećavamo broj najboljih za 1. Istodobno provjeravamo zadovoljava li svaki rezultat zadani prag.
+
+E1. Samoprocjena LV10
+Sada mogu samostalno objasniti bazni slučaj:
+
+DA
+
+Mogu obrazložiti razliku u dodatnoj memoriji:
+
+DA
+
+Što želim dodatno uvježbati prije završne provjere?
+
+Želim dodatno uvježbati rekurzivne funkcije, bazni slučaj, rekurzivne pozive te vremensku i prostornu složenost algoritama.
+
